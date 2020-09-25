@@ -3,8 +3,9 @@ import React from 'react';
 class Header extends React.Component {
     render(){
         return (
-            <h1>Header Text</h1>
+            <h1>Header: View Profile, View Saved Scores </h1>
         )
+        
     }
 }
 
