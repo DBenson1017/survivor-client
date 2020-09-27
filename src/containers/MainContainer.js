@@ -12,7 +12,7 @@ class MainContainer extends React.Component {
         return(
             <div>
                 <Signup submitSignup={this.props.submitSignup}/>
-                <Login />
+                <Login loginHandler={this.props.loginHandler}/>
                 <User />
                 <Search />
 
