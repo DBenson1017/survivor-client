@@ -24,15 +24,18 @@ class Signup extends React.Component {
 
     render () {
         return(
-          <form onSubmit={this.submitHandler}>
-            <input onChange={this.changeHandler} name='first_name' placeholder='First Name' type='text' value={this.state.first_name} />
-            <input onChange={this.changeHandler} name='last_name' placeholder='Last Name' type='text' value={this.state.last_name} />
-            <input onChange={this.changeHandler} name='username' placeholder='username' type='text' value={this.state.username}/>
-            <input onChange={this.changeHandler} name='email' placeholder='email' type='text' value={this.state.email}/>
-            <input onChange={this.changeHandler} name='password' placeholder='password' type='text' value={this.state.password}/>
-            <input onChange={this.changeHandler} name='zip' placeholder='zip code' type='text' value={this.state.zip}/>
-            <input type='submit' value='Submit' />
-          </form>
+            <>
+            <h3>Sign up for an account here!</h3>
+            <form onSubmit={this.submitHandler}>
+                <input onChange={this.changeHandler} name='first_name' placeholder='First Name' type='text' value={this.state.first_name} /> <br></br>
+                <input onChange={this.changeHandler} name='last_name' placeholder='Last Name' type='text' value={this.state.last_name} /><br></br>
+                <input onChange={this.changeHandler} name='username' placeholder='username' type='text' value={this.state.username}/><br></br>
+                <input onChange={this.changeHandler} name='email' placeholder='email' type='text' value={this.state.email}/><br></br>
+                <input onChange={this.changeHandler} name='password' placeholder='password' type='text' value={this.state.password}/><br></br>
+                <input onChange={this.changeHandler} name='zip' placeholder='zip code' type='text' value={this.state.zip}/><br></br>
+                <input type='submit' value='Submit' />
+            </form>
+          </>
         )
     }
 

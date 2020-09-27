@@ -1,4 +1,5 @@
 import React from 'react';
+import {Redirect} from 'react-router-dom'
 
 class Search extends React.Component {
 
@@ -31,10 +32,17 @@ class Search extends React.Component {
 
     render(){
         return(
-            <form onSubmit={this.localSubmitHandler}>
-                <input onChange={this.changeHandler} type='text' name='searchField' placeholder='enter a zip code' value={this.state.searchField}/>
-                <input type='submit' value='submit'/>
-            </form>
+            <>
+            {this.props.user ? 
+                <form onSubmit={this.localSubmitHandler}>
+                    <input onChange={this.changeHandler} type='text' name='searchField' placeholder='enter a zip code' value={this.state.searchField}/>
+                    <input type='submit' value='submit'/>
+                </form>
+            : 
+                // <Redirect to='/'/>
+                <h3>Please login</h3>
+            }
+            </>
         )
     }
 }

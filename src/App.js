@@ -1,7 +1,12 @@
 import React from 'react';
 import logo from './logo.svg';
+import {Route, Switch, Redirect} from 'react-router-dom'
 import './App.css';
 import Header from './containers/Header.js'
+import NavBar from './components/NavBar'
+import About from './components/About'
+import Welcome from './containers/Welcome'
+import Search from './components/Search'
 import MainContainer from './containers/MainContainer'
 
 
@@ -29,7 +34,6 @@ class App extends React.Component {
 
   loginHandler=(obj)=> {
     console.log('entered loginHandler fetch')
-
     let options = {
       method: 'POST',
       headers: {
@@ -40,17 +44,19 @@ class App extends React.Component {
     }
     fetch('http://localhost:3000/api/v1/login', options)
       .then(resp=> resp.json())
-      .then(user => console.log(user))
+      .then((data)=> this.setState({user: data.user}))
   }
 
   render(){
 
     return (
       <div className="App">
-        
-        <Header />
-        <MainContainer submitSignup={this.submitSignup} loginHandler={this.loginHandler}/>
-      
+        <NavBar />
+    
+            <Route exact path='/about' component={About}/>
+            <Route exact path='/' render={()=> <Welcome user={this.state.user} submitSignup={this.submitSignup} loginHandler={this.loginHandler}/>} />
+            <Route exact path='/search' render={()=> <Search user={this.state.user}/>}/>
+       
       </div>
     );
 
