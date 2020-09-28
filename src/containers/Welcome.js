@@ -6,6 +6,7 @@ import Login from '../components/Login'
 class Welcome extends React.Component {
 
     render(){
+        console.log('routing through Welcome')
         return (
             <>
                 <div>

@@ -44,7 +44,27 @@ class App extends React.Component {
     }
     fetch('http://localhost:3000/api/v1/login', options)
       .then(resp=> resp.json())
-      .then((data)=> this.setState({user: data.user}))
+      .then((data)=> {
+        console.log(data)
+        localStorage.setItem('token', data.jwt)
+        this.setState( {user: data.user} )
+      })
+  }
+
+  componentDidMount(){
+    const token = localStorage.getItem('token')
+    if (token) {
+      fetch('http://localhost:3000/api/v1/profile', {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${token}`}
+      })
+      .then(resp => resp.json())
+      .then(data => this.setState({user: data.user}))
+    } else {
+      // send to login 
+    }
+
   }
 
   render(){
