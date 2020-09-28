@@ -15,25 +15,28 @@ class Search extends React.Component {
     localSubmitHandler=(e)=>{
         e.preventDefault()
         console.log('submit heard by search.js')
-        let zip = this.state.searchField
+        let token = localStorage.getItem('token')
+        let zip = {zip: this.state.searchField}
         console.log(zip)
         let options ={
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Accept': 'application/json'
+                'Accept': 'application/json',
+                'Authorization': `Bearer ${token}`
             }, 
             body: JSON.stringify(zip)
         }
+        console.log(options)
         fetch('http://localhost:3000/locations', options)
             .then(resp=> resp.json())
             .then(data => console.log(data))
+            
     }
 
     render(){
         return(
             <>
-            console.log(this.props.user)
             {this.props.user ? 
                 <form onSubmit={this.localSubmitHandler}>
                     <input onChange={this.changeHandler} type='text' name='searchField' placeholder='enter a zip code' value={this.state.searchField}/>
