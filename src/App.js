@@ -10,7 +10,6 @@ import Search from './components/Search'
 import MainContainer from './containers/MainContainer'
 
 
-
 class App extends React.Component {
 
   state={
@@ -64,7 +63,6 @@ class App extends React.Component {
     } else {
       // send to login 
     }
-
   }
 
   render(){
