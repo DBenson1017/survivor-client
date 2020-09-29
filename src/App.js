@@ -29,7 +29,7 @@ class App extends React.Component {
       body: JSON.stringify(obj)
     })
     .then(resp => resp.json())
-    .then(newUser => console.log(newUser))
+    .then(newUser => console.log("fetch result: ", newUser))
   }
 
   loginHandler=(obj)=> {
@@ -57,9 +57,10 @@ class App extends React.Component {
     if (token) {
       fetch('http://localhost:3000/api/v1/profile', {
         method: 'GET',
-        headers: { Authorization: `Bearer ${token}`},
+        headers: {Authorization: `Bearer ${token}`},
       })
       .then(resp => resp.json())
+      // .then(data => console.log("in CDM: ", data))
       .then(data => this.setState({user: data.user}))
     } else {
       // send to login 
