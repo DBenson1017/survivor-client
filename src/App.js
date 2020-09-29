@@ -7,15 +7,15 @@ import NavBar from './components/NavBar'
 import About from './components/About'
 import Welcome from './containers/Welcome'
 import Search from './components/Search'
-import MainContainer from './containers/MainContainer'
-
 
 class App extends React.Component {
 
   state={
-    user: null
+    user: null,
+    allLocations: []
   }
 
+  // ### USER SIGNUP ########
   submitSignup =(obj)=>{
     console.log('submitSignup heard in App')
     console.log(obj)
@@ -31,6 +31,7 @@ class App extends React.Component {
     .then(newUser => console.log(newUser))
   }
 
+  // ######### USER LOGIN ########
   loginHandler=(obj)=> {
     console.log('entered loginHandler fetch')
     let options = {
@@ -53,6 +54,7 @@ class App extends React.Component {
   componentDidMount(){
     const token = localStorage.getItem('token')
     console.log(localStorage)
+    //##### PULL USER ######
     if (token) {
       fetch('http://localhost:3000/api/v1/profile', {
         method: 'GET',
@@ -63,16 +65,22 @@ class App extends React.Component {
     } else {
       // send to login 
     }
+    // ##### PULL ALL LOCATIONS INTO STATE #####
+    if (token)
+    fetch('http://localhost:3000/locations')
+      .then(resp=>resp.json())
+      .then(data=> this.setState({allLocations: data}))
   }
 
   render(){
 
     return (
       <div className="App">
-        <NavBar />
+            <Header />
+            
     
-            <Route exact path='/about' component={About}/>
             <Route exact path='/' render={()=> <Welcome user={this.state.user} submitSignup={this.submitSignup} loginHandler={this.loginHandler}/>} />
+            <Route exact path='/about' component={About}/>
             <Route exact path='/search' render={()=> <Search user={this.state.user}/>}/>
        
       </div>

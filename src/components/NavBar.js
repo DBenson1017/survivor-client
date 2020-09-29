@@ -11,6 +11,7 @@ class NavBar extends React.Component{
 
             <div>
                 <h1>NavBar test</h1>
+                
               
 
 
