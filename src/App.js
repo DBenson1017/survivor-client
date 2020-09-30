@@ -14,6 +14,7 @@ class App extends React.Component {
 
   state={
     user: null
+    
   }
 
   submitSignup =(obj)=>{
