@@ -36,33 +36,33 @@ class Search extends React.Component {
         console.log(options)
         fetch('http://localhost:3000/locations', options)
             .then(resp=> resp.json())
-            .then(data => this.setState({location: data}))    
+            .then(data => this.setState({location: data.location.id}))    
     }
 
-    showSuperfund =()=>{
-        console.log(this.state.location.location.id)
-        fetch('http://localhost:3000/api/v1/superfunds')
-            .then(resp=> resp.json())
-            .then(superData=> this.sortSuperfund(superData))
-    }
+    // showSuperfund =()=>{
+    //     console.log(this.state.location.location.id)
+    //     fetch('http://localhost:3000/api/v1/superfunds')
+    //         .then(resp=> resp.json())
+    //         .then(superData=> this.sortSuperfund(superData))
+    // }
 
-    sortSuperfund =(superData)=>{
-        let id= this.state.location.location.id
-        console.log('entered sortSuper')
-        console.log(superData)
-        let filtered = superData.filter(function(instance){
-            return instance.location_id === 53
-        })
-        console.log(filtered)
-        this.generateSupercard(filtered)
-        // send filtered arrray to resutls card, then results can map through it and make super fund cards
-    }
+    // sortSuperfund =(superData)=>{
+    //     let id= this.state.location.location.id
+    //     console.log('entered sortSuper')
+    //     console.log(superData)
+    //     let filtered = superData.filter(function(instance){
+    //         return instance.location_id === 53
+    //     })
+    //     console.log(filtered)
+    //     this.generateSupercard(filtered)
+    //     // send filtered arrray to resutls card, then results can map through it and make super fund cards
+    // }
 
-    generateSupercard=(array)=>{
-        console.log('entered generateSupercard')
-        console.log(array)
-        return array.map(site => <Superfund id={site.id} site={site} />)
-    }
+    // generateSupercard=(array)=>{
+    //     console.log('entered generateSupercard')
+    //     console.log(array)
+    //     return array.map(site => <Superfund id={site.id} site={site} />)
+    // }
 
     render(){
         return(
@@ -79,8 +79,7 @@ class Search extends React.Component {
             {this.state.location ?
                 <>
                 <h3>Search Result</h3>
-                <Result location={this.state.location}/>
-
+                <Result location_id={this.state.location}/>
                 </>
                 :
                 <h3>please enter a zipcode above</h3>     
