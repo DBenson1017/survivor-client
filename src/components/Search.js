@@ -9,8 +9,8 @@ class Search extends React.Component {
     state={
         searchField:'', 
         location: null, 
-       airObject: null, 
-       superObject: null,
+        airObject: null, 
+        superObject: null,
     }
 
     changeHandler=(e)=>{
@@ -39,31 +39,6 @@ class Search extends React.Component {
             .then(data => this.setState({location: data.location.id}))    
     }
 
-    // showSuperfund =()=>{
-    //     console.log(this.state.location.location.id)
-    //     fetch('http://localhost:3000/api/v1/superfunds')
-    //         .then(resp=> resp.json())
-    //         .then(superData=> this.sortSuperfund(superData))
-    // }
-
-    // sortSuperfund =(superData)=>{
-    //     let id= this.state.location.location.id
-    //     console.log('entered sortSuper')
-    //     console.log(superData)
-    //     let filtered = superData.filter(function(instance){
-    //         return instance.location_id === 53
-    //     })
-    //     console.log(filtered)
-    //     this.generateSupercard(filtered)
-    //     // send filtered arrray to resutls card, then results can map through it and make super fund cards
-    // }
-
-    // generateSupercard=(array)=>{
-    //     console.log('entered generateSupercard')
-    //     console.log(array)
-    //     return array.map(site => <Superfund id={site.id} site={site} />)
-    // }
-
     render(){
         return(
             <div>
@@ -72,14 +47,19 @@ class Search extends React.Component {
                     <input onChange={this.changeHandler} type='text' name='searchField' placeholder='enter a zip code' value={this.state.searchField}/>
                     <input type='submit' value='submit'/>
                 </form>
+             
             : 
                 <h3>Please login</h3>
             }
 
             {this.state.location ?
                 <>
+                {/* button  */}
                 <h3>Search Result</h3>
                 <Result location_id={this.state.location}/>
+                <form>
+
+                </form>
                 </>
                 :
                 <h3>please enter a zipcode above</h3>     
