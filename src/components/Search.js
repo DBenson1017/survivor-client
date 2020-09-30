@@ -39,42 +39,6 @@ class Search extends React.Component {
             .then(data => this.setState({location: data}))    
     }
 
-    // sortData = ()=>{
-    //     this.showAir()
-    //     this.showSuperfund()
-    // }
-
-    showAir = ()=>{
-       console.log(this.state.location.location.id)
-        fetch('http://localhost:3000/airs')
-            .then(resp=> resp.json())
-            .then(airData=> this.sortAir(airData))
-    }
-
-    sortAir =(airData)=> {
-        let id= this.state.location.location.id
-        console.log('entered sortAir')
-        // console.log(airData)
-        let airQuality = airData.filter(function(instance){
-           return instance.location.id === 53
-        })
-    
-        let city = airQuality[0].city
-        let state = airQuality[0].state
-        let qualityWord = airQuality[0].air_quality
-        let qualityCode = airQuality[0].quality_code
-        let qualityIndex = airQuality[0].quality_index 
-
-        console.log(city)
-        console.log(state)
-        console.log(qualityWord)
-        console.log(qualityCode)
-        console.log(qualityIndex)
-        // send data over to a results component, to render an airCard
-        return <AirCard city={city} state={state} qualityWord={qualityWord} qualityCode={qualityCode} qualityIndex={qualityIndex}/>
-        
-    }
-
     showSuperfund =()=>{
         console.log(this.state.location.location.id)
         fetch('http://localhost:3000/api/v1/superfunds')
@@ -98,7 +62,6 @@ class Search extends React.Component {
         console.log('entered generateSupercard')
         console.log(array)
         return array.map(site => <Superfund id={site.id} site={site} />)
-
     }
 
     render(){
@@ -110,7 +73,6 @@ class Search extends React.Component {
                     <input type='submit' value='submit'/>
                 </form>
             : 
-                // <Redirect to='/'/>
                 <h3>Please login</h3>
             }
 
@@ -118,9 +80,6 @@ class Search extends React.Component {
                 <>
                 <h3>Search Result</h3>
                 <Result location={this.state.location}/>
-                {/* <AirCard location={this.state.location} />
-                <Superfund location={this.state.location} />
-                {this.sortData()} */}
                 </>
                 :
                 <h3>please enter a zipcode above</h3>     
