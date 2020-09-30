@@ -9,6 +9,7 @@ import Welcome from './containers/Welcome'
 import Search from './components/Search'
 import Result from './components/Result'
 
+
 class App extends React.Component {
 
   state={
@@ -30,7 +31,7 @@ class App extends React.Component {
       body: JSON.stringify(obj)
     })
     .then(resp => resp.json())
-    .then(newUser => console.log(newUser))
+    .then(newUser => console.log("fetch result: ", newUser))
   }
 
   // ######### USER LOGIN ########
@@ -60,9 +61,10 @@ class App extends React.Component {
     if (token) {
       fetch('http://localhost:3000/api/v1/profile', {
         method: 'GET',
-        headers: { Authorization: `Bearer ${token}`},
+        headers: {Authorization: `Bearer ${token}`},
       })
       .then(resp => resp.json())
+      // .then(data => console.log("in CDM: ", data))
       .then(data => this.setState({user: data.user}))
     } else {
       // send to login 
@@ -85,6 +87,7 @@ class App extends React.Component {
     }
   } // end of componentDidMount
 
+
   render(){
 
     return (
@@ -92,7 +95,7 @@ class App extends React.Component {
             <Header />
             
     
-            <Route exact path='/' render={()=> <Welcome user={this.state.user} submitSignup={this.submitSignup} loginHandler={this.loginHandler}/>} />
+            <Route exact path='/' render={()=> <Welcome user={this.state.user} submitSignup={this.submitSignup} loginHandler={this.loginHandler} header={"Survivor"}/>} />
             <Route exact path='/about' component={About}/>
             <Route exact path='/search' render={()=> <Search user={this.state.user}/>}/>
             <Route exact path='/result' render={()=> <Result user={this.state.user}/>}/>
