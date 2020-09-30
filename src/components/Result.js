@@ -20,7 +20,7 @@ class Result extends React.Component {
      }
  
      sortAir =(airData)=> {
-        // let id= this.state.location.location.id
+        // let id= this.state.location.location.id but it will be props 
          console.log('entered sortAir')
          // console.log(airData)
          let airQuality =[]
@@ -44,6 +44,7 @@ class Result extends React.Component {
         return(
             <>
                <AirCard data={this.state.airData} />
+               {/* function to generate superfund cards  */}
            </>     
         )
     }

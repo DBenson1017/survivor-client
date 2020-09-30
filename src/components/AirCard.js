@@ -5,11 +5,6 @@ class AirCard extends React.Component {
 
 
     componentDidUpdate(){
-        console.log(this.props.data[0].city)
-        console.log(this.props.data[0].state)
-        console.log(this.props.data[0].air_quality)
-        console.log(this.props.data[0].quality_code)
-        console.log(this.props.data[0].quality_index)
     }
         render () {
             console.log('entered AirCard')

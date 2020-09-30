@@ -80,6 +80,7 @@ class Search extends React.Component {
                 <>
                 <h3>Search Result</h3>
                 <Result location={this.state.location}/>
+
                 </>
                 :
                 <h3>please enter a zipcode above</h3>     
