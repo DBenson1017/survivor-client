@@ -9,13 +9,8 @@ class NavBar extends React.Component{
     render(){
         return (
 
-            <div>
-                <h1>NavBar test</h1>
-                
-              
-
-
-
+            <div className="navbar">
+                <p>SURVIVOR ICON/LOGO HOME SEARCH RESULTS</p>
             </div>    
         )
 

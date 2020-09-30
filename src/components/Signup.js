@@ -1,4 +1,15 @@
 import React from 'react';
+import {
+  Button,
+  Divider,
+  Grid,
+  Header,
+  Icon,
+  Search,
+  Segment,
+} from 'semantic-ui-react'
+
+
 
 class Signup extends React.Component {
 
