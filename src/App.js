@@ -12,7 +12,8 @@ class App extends React.Component {
 
   state={
     user: null,
-    allLocations: []
+    allLocations: [], 
+    favorites: []
   }
 
   // ### USER SIGNUP ########
@@ -66,11 +67,27 @@ class App extends React.Component {
       // send to login 
     }
     // ##### PULL ALL LOCATIONS INTO STATE #####
-    if (token)
+    if (token) {
     fetch('http://localhost:3000/locations')
       .then(resp=>resp.json())
       .then(data=> this.setState({allLocations: data}))
-  }
+    } else {
+      // send to login 
+    }
+    // #### PULL ALL FAVORITES INTO STATE ####
+    if (token) {
+    fetch('http://localhost:3000/favorites')
+      .then(resp=>resp.json())
+      .then(data=> this.setState({favorites: data}))
+    } else {
+      // send to login 
+    }
+  } // end of componentDidMount
+
+
+
+
+
 
   render(){
 
