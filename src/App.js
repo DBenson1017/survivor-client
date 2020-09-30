@@ -7,6 +7,7 @@ import NavBar from './components/NavBar'
 import About from './components/About'
 import Welcome from './containers/Welcome'
 import Search from './components/Search'
+import Result from './components/Result'
 
 class App extends React.Component {
 
@@ -85,11 +86,6 @@ class App extends React.Component {
     }
   } // end of componentDidMount
 
-
-
-
-
-
   render(){
 
     return (
@@ -100,6 +96,7 @@ class App extends React.Component {
             <Route exact path='/' render={()=> <Welcome user={this.state.user} submitSignup={this.submitSignup} loginHandler={this.loginHandler}/>} />
             <Route exact path='/about' component={About}/>
             <Route exact path='/search' render={()=> <Search user={this.state.user}/>}/>
+            <Route exact path='/result' render={()=> <Result user={this.state.user}/>}/>
        
       </div>
     );
