@@ -29,7 +29,7 @@ class Login extends React.Component {
             <Grid textAlign='center' style={{ height: '90vh' }} verticalAlign='middle' divided="vertically">
                     <Grid.Column style={{ maxWidth: 450 }}>
                     <h2> Log-in to your account</h2>
-                    <Form>
+                    {/* <Form> */}
                     <form onSubmit={this.submitHandler}>
                         <Form.Field>
                             <input onChange={this.changeHandler} name='username' placeholder='username' type='text' value={this.state.username} /> 
@@ -39,7 +39,7 @@ class Login extends React.Component {
                         </Form.Field>
                             <input type='submit' value='login' />
                         </form>
-                        </Form>
+                        {/* </Form> */}
                     </Grid.Column>
             </Grid>
             </>
