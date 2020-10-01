@@ -46,12 +46,13 @@ class App extends React.Component {
       },
       body: JSON.stringify(obj)
     }
+    console.log(obj)
     fetch('http://localhost:3000/api/v1/login', options)
       .then(resp=> resp.json())
       .then((data)=> {
-        console.log(data)
+        console.log(data.user.data.attributes.favorites)
         localStorage.setItem('token', data.jwt)
-        this.setState( {user: data.user} )
+        this.setState(()=> ( {user: data.user.data,  favorites: data.user.data.attributes.favorites}) )
       })
   }
 
@@ -79,30 +80,34 @@ class App extends React.Component {
       // send to login 
     }
     // #### PULL ALL FAVORITES INTO STATE ####
-    if (token) {
-    fetch('http://localhost:3000/favorites')
-      .then(resp=>resp.json())
-      .then(data=> this.setState({favorites: data}))
-    } else {
-      // send to login 
-    }
+    // if (token) {
+    // fetch('http://localhost:3000/favorites')
+    //   .then(resp=>resp.json())
+    //   .then(data=> this.setState({favorites: data}))
+    // } else {
+    //   // send to login 
+    // }
   } // end of componentDidMount
 
 
   render(){
+    console.log(this.state.user)
 
     return (
       <div className="App">
-            <Header />
-            
-    
+
+      <Header/>
+        <Switch>
             <Route exact path='/' render={()=> <Welcome user={this.state.user} submitSignup={this.submitSignup} loginHandler={this.loginHandler} header={"Survivor"}/>} />
             <Route exact path='/about' component={About}/>
             <Route exact path='/search' render={()=> <Search user={this.state.user}/>}/>
             <Route exact path='/result' render={()=> <Result user={this.state.user}/>}/>
-            <Route exact path='/favorites' render={()=> <Favorites user={this.state.user}/>}/>
-       
+            <Route  path='/favorites' render={()=> <Favorites user={this.state.user} favorites={this.state.favorites}/>}/>    
+        </Switch>
       </div>
+
+            
+    
     );
 
   }
