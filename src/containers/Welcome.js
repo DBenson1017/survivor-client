@@ -8,7 +8,7 @@ import backdrop from '../Survivor_backdrop.jpeg'
 class Welcome extends React.Component {
 
     header = () => {
-    return <h1>Welcome {this.props.header}</h1>
+    return <h1>{this.props.header}</h1>
     }
 
     render(){
