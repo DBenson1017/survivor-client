@@ -2,6 +2,7 @@ import React from 'react';
 import Result from './Result'
 import AirCard from './AirCard'
 import Superfund from './Superfund'
+
 // import {Route, Redirect} from 'react-router-dom'
 
 class Search extends React.Component {
@@ -41,7 +42,14 @@ class Search extends React.Component {
 
     render(){
         return(
-            <div>
+            <div class="search_image"
+            style={{
+                backgroundImage: `url("https://media.giphy.com/media/grfwMy0B4DFoA/giphy.gif")`,
+                backgroundSize: "cover",
+                height: "100vh",
+                color: "#f5f5f5"
+            }}>
+                
             {this.props.user ? 
                 <form onSubmit={this.localSubmitHandler}>
                     <input onChange={this.changeHandler} type='text' name='searchField' placeholder='enter a zip code' value={this.state.searchField}/>
