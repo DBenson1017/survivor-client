@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
-import { Checkbox} from 'semantic-ui-react'
+
 
 class Login extends React.Component {
 
@@ -25,11 +25,10 @@ class Login extends React.Component {
     render () {
         return(
             <>
-                <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+            
+            <Grid textAlign='center' style={{ height: '90vh' }} verticalAlign='middle'>
                     <Grid.Column style={{ maxWidth: 450 }}>
-                    <Header as='h2' color='white' textAlign='center'>
-                        Log-in to your account
-                    </Header>
+                    <h2> Log-in to your account</h2>
                     <Form>
                     <form onSubmit={this.submitHandler}>
                         <Form.Field>
@@ -38,13 +37,11 @@ class Login extends React.Component {
                         <Form.Field>
                             <input onChange={this.changeHandler} name='password' placeholder='password' type='text' value={this.state.password} /> 
                         </Form.Field>
-                        <Button> 
                             <input type='submit' value='login' />
-                        </Button>
                         </form>
                         </Form>
                     </Grid.Column>
-                </Grid>
+            </Grid>
             </>
         )
     }
