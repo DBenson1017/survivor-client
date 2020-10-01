@@ -3,18 +3,20 @@ import {NavLink} from 'react-router-dom'
 import Signup from './Signup'
 import About from './About'
 import Welcome from '../containers/Welcome'
-import { Input, Menu } from 'semantic-ui-react'
-import { Grid } from 'semantic-ui-react'
+import { Input, Menu, Grid, Image } from 'semantic-ui-react'
 
 
 class NavBar extends React.Component{
 
     render(){
         return (
-
+           
             <div className="navbar">
+                
               <Grid style={{ height: '9vh' }} divided='vertically'>
                 <Menu secondary floated stackable>
+                <Menu.Item />
+                <Image avatar centered size='mini' src='../ICON2.jpeglogo.png'  />
                 <Menu.Item
                     name='SURVIVOR'
                  />
@@ -30,12 +32,10 @@ class NavBar extends React.Component{
                
             </div>    
         )
-
     }
-
-
 }
 export default NavBar
+
 
 
 
