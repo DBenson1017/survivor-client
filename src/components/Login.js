@@ -1,4 +1,6 @@
 import React from 'react';
+import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
+
 
 class Login extends React.Component {
 
@@ -23,16 +25,36 @@ class Login extends React.Component {
     render () {
         return(
             <>
-            <h3>Log into your account</h3>
-          <form onSubmit={this.submitHandler}>
-            <input onChange={this.changeHandler} name='username' placeholder='username' type='text' value={this.state.username} /> <br></br>
-            <input onChange={this.changeHandler} name='password' placeholder='password' type='text' value={this.state.password} /> <br></br>
-            <input type='submit' value='login' />
-          </form>
-          </>
+            
+            <Grid textAlign='center' style={{ height: '90vh' }} verticalAlign='middle'>
+                    <Grid.Column style={{ maxWidth: 450 }}>
+                    <h2> Log-in to your account</h2>
+                    <Form>
+                    <form onSubmit={this.submitHandler}>
+                        <Form.Field>
+                            <input onChange={this.changeHandler} name='username' placeholder='username' type='text' value={this.state.username} /> 
+                        </Form.Field>
+                        <Form.Field>
+                            <input onChange={this.changeHandler} name='password' placeholder='password' type='text' value={this.state.password} /> 
+                        </Form.Field>
+                            <input type='submit' value='login' />
+                        </form>
+                        </Form>
+                    </Grid.Column>
+            </Grid>
+            </>
         )
     }
 
 }
 
 export default Login 
+
+
+
+
+
+
+  
+
+
