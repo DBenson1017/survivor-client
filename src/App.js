@@ -95,19 +95,13 @@ class App extends React.Component {
 
     return (
       <div className="App">
-
-      <Header/>
-        <Switch>
-            <Route exact path='/' render={()=> <Welcome user={this.state.user} submitSignup={this.submitSignup} loginHandler={this.loginHandler} header={"Survivor"}/>} />
+            <Header />
+            <Route exact path='/' render={()=> <Welcome user={this.state.user} submitSignup={this.submitSignup} loginHandler={this.loginHandler} header={"Survivor"} />} />
             <Route exact path='/about' component={About}/>
             <Route exact path='/search' render={()=> <Search user={this.state.user}/>}/>
             <Route exact path='/result' render={()=> <Result user={this.state.user}/>}/>
-            <Route  path='/favorites' render={()=> <Favorites user={this.state.user} favorites={this.state.favorites}/>}/>    
-        </Switch>
+            <Route  path='/favorites' render={()=> <Favorites user={this.state.user} favorites={this.state.favorites}/>}/> 
       </div>
-
-            
-    
     );
 
   }

@@ -30,7 +30,7 @@ class Signup extends React.Component {
             <>
             <h2>Sign up for an account here!</h2>
 
-            <Grid textAlign='center' style={{ height: '1px' }} verticalAlign='middle'>
+            <Grid textAlign='center' style={{ height: '1px' }} verticalAlign='middle' divided="vertically">
             <Grid.Column style={{ maxWidth: 450 }}>
             <Form>
             <form onSubmit={this.submitHandler}>
