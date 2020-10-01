@@ -32,7 +32,7 @@ class Signup extends React.Component {
 
             <Grid textAlign='center' style={{ height: '1px' }} verticalAlign='middle' divided="vertically">
             <Grid.Column style={{ maxWidth: 450 }}>
-            <Form>
+            {/* <Form> */}
             <form onSubmit={this.submitHandler}>
                 <Form.Field>
                 <input onChange={this.changeHandler} name='first_name' placeholder='First Name' type='text' value={this.state.first_name} /> <br></br>
@@ -56,7 +56,7 @@ class Signup extends React.Component {
                 <input type='submit' value='Submit' />
                 </Form.Field>
             </form>
-            </Form>
+            {/* </Form> */}
             </Grid.Column>
             </Grid>
 

@@ -50,9 +50,9 @@ class App extends React.Component {
     fetch('http://localhost:3000/api/v1/login', options)
       .then(resp=> resp.json())
       .then((data)=> {
-        console.log(data.user.data.attributes.favorites)
+        console.log(data)
         localStorage.setItem('token', data.jwt)
-        this.setState(()=> ( {user: data.user.data,  favorites: data.user.data.attributes.favorites}) )
+        this.setState(()=> ( {user: data.user }) )
       })
   }
 
