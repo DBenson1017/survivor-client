@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
-import {Route, Switch, Redirect} from 'react-router-dom'
+import {Route, Switch, Redirect, withRouter} from 'react-router-dom'
 import './App.css';
 import Header from './containers/Header.js'
 import NavBar from './components/NavBar'
@@ -36,7 +36,8 @@ class App extends React.Component {
   }
 
   // ######### USER LOGIN ########
-  loginHandler=(obj)=> {
+  
+    loginHandler=(obj)=>{
     console.log('entered loginHandler fetch')
     let options = {
       method: 'POST',
@@ -47,13 +48,21 @@ class App extends React.Component {
       body: JSON.stringify(obj)
     }
     console.log(obj)
-    fetch('http://localhost:3000/api/v1/login', options)
+      fetch('http://localhost:3000/api/v1/login', options)
       .then(resp=> resp.json())
       .then((data)=> {
         console.log(data)
         localStorage.setItem('token', data.jwt)
-        this.setState(()=> ( {user: data.user }) )
+        this.setState({user: data.user}, ()=> console.log(this.state))
+        this.props.history.push('/search')
       })
+  }
+
+  successfulLogin=()=>{
+    console.log('emter successfulLoig')
+    if( this.state.user){
+      
+    }
   }
 
   componentDidMount(){
@@ -90,8 +99,9 @@ class App extends React.Component {
   } // end of componentDidMount
 
 
+
   render(){
-    console.log(this.state.user)
+    console.log(this.props)
 
     return (
       <div className="App">
@@ -107,4 +117,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default withRouter(App);
