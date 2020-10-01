@@ -32,7 +32,13 @@ class App extends React.Component {
       body: JSON.stringify(obj)
     })
     .then(resp => resp.json())
-    .then(newUser => console.log("fetch result: ", newUser))
+    .then(newUser =>{
+      console.log("fetch result: ", newUser)
+      localStorage.setItem('token', newUser.jwt)
+      this.setState({user: newUser.user}, ()=> console.log(this.state.user))
+      this.props.history.push('/search')
+
+    })
   }
 
   // ######### USER LOGIN ########
