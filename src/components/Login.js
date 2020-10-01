@@ -26,7 +26,7 @@ class Login extends React.Component {
         return(
             <>
             
-            <Grid textAlign='center' style={{ height: '90vh' }} verticalAlign='middle'>
+            <Grid textAlign='center' style={{ height: '90vh' }} verticalAlign='middle' divided="vertically">
                     <Grid.Column style={{ maxWidth: 450 }}>
                     <h2> Log-in to your account</h2>
                     <Form>

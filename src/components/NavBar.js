@@ -4,6 +4,7 @@ import Signup from './Signup'
 import About from './About'
 import Welcome from '../containers/Welcome'
 import { Input, Menu } from 'semantic-ui-react'
+import { Grid } from 'semantic-ui-react'
 
 
 class NavBar extends React.Component{
@@ -12,7 +13,8 @@ class NavBar extends React.Component{
         return (
 
             <div className="navbar">
-                <Menu secondary floated>
+              <Grid style={{ height: '9vh' }} divided='vertically'>
+                <Menu secondary floated stackable>
                 <Menu.Item
                     name='SURVIVOR'
                  />
@@ -24,6 +26,7 @@ class NavBar extends React.Component{
                 />
                 {/* </Menu.Menu> */}
                 </Menu>
+                </Grid>
                
             </div>    
         )
