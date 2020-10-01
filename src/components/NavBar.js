@@ -14,6 +14,7 @@ class NavBar extends React.Component{
             <div className="navbar">
                 
               <Grid style={{ height: '9vh' }} divided='vertically'>
+              <Icon name='home' size='small'/>
                 <Menu secondary floated stackable>
                 <Icon name='home' size='small'/>
                 <Menu.Item />

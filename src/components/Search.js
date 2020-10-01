@@ -73,7 +73,7 @@ class Search extends React.Component {
                 </form>
                 </>
                 :
-                <h3>please enter a zipcode above</h3>     
+                <h2>Please enter a zipcode above</h2>     
            
             }
             </div>
