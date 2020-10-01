@@ -1,6 +1,7 @@
 import React from 'react';
 import AirCard from './AirCard'
 import Superfund from './Superfund'
+import { Grid } from 'semantic-ui-react'
 
 class Result extends React.Component {
 
@@ -79,10 +80,12 @@ class Result extends React.Component {
             )} 
         return(
             <div>
+                <Grid style={{ height: '9vh' }} divided='vertically'>
                 <AirCard data={this.state.airData} />
                 <>
                 {this.state.superData? this.generateSupercard() : <h2> There are no superfunds in this zip</h2> }  
                 </> 
+                </Grid>
             </div>
         )
     }

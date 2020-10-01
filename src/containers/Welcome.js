@@ -2,7 +2,6 @@ import React from 'react'
 import Signup from '../components/Signup'
 import Login from '../components/Login'
 // import Route from 'react-reouter-dom'
-// import backdrop from '../../public/Survivor_backdrop.jpeg'
 import backdrop from '../Survivor_backdrop.jpeg'
 import { Grid } from 'semantic-ui-react'
 
