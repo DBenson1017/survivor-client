@@ -16,7 +16,7 @@ class NavBar extends React.Component{
               <Grid style={{ height: '9vh' }} divided='vertically'>
                 <Menu secondary floated stackable>
                 <Menu.Item />
-                <Image avatar centered size='mini' src='../ICON2.jpeglogo.png'  />
+                <Image avatar centeredsize='mini' src='../ICON2.jpeglogo.png'  />
                 <Menu.Item
                     name='SURVIVOR'
                  />
