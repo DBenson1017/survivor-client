@@ -2,6 +2,7 @@ import React from 'react';
 import Result from './Result'
 import AirCard from './AirCard'
 import Superfund from './Superfund'
+// import { Segment } from 'semantic-ui-react'
 
 // import {Route, Redirect} from 'react-router-dom'
 
@@ -51,10 +52,12 @@ class Search extends React.Component {
             }}>
                 
             {this.props.user ? 
+             
                 <form onSubmit={this.localSubmitHandler}>
                     <input onChange={this.changeHandler} type='text' name='searchField' placeholder='enter a zip code' value={this.state.searchField}/>
                     <input type='submit' value='submit'/>
                 </form>
+          
              
             : 
                 <h3>Please login</h3>
