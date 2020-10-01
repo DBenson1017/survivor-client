@@ -72,8 +72,7 @@ class Favorites extends React.Component {
     render(){
             return(
                 <div>
-                <h3>favorite text</h3>
-         
+                <h3>favorite text</h3>        
                 </div>
             )
     }
