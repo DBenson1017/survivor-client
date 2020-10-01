@@ -11,7 +11,7 @@ class AirCard extends React.Component {
             console.log('entered AirCard')
             return (
                 <div>
-                <Segment compact padded raised size="large">
+                <Segment textAlign="center" compact secondary padded raised size="large">
                 <h2>Air Quality</h2>
                 <h3>City: {this.props.data[0].city}</h3>
                 <h3>State: {this.props.data[0].state}</h3> 
