@@ -96,7 +96,7 @@ class App extends React.Component {
             <Header />
             
     
-            <Route exact path='/' render={()=> <Welcome user={this.state.user} submitSignup={this.submitSignup} loginHandler={this.loginHandler} header={"Survivor"}/>} />
+            <Route exact path='/' render={()=> <Welcome user={this.state.user} submitSignup={this.submitSignup} loginHandler={this.loginHandler} header={"Survivor"} />} />
             <Route exact path='/about' component={About}/>
             <Route exact path='/search' render={()=> <Search user={this.state.user}/>}/>
             <Route exact path='/result' render={()=> <Result user={this.state.user}/>}/>
