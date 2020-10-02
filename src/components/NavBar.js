@@ -3,7 +3,7 @@ import {NavLink} from 'react-router-dom'
 import Signup from './Signup'
 import About from './About'
 import Welcome from '../containers/Welcome'
-import { Input, Menu, Grid, Icon } from 'semantic-ui-react'
+import {Input, Menu, Grid, Icon } from 'semantic-ui-react'
 
 
 class NavBar extends React.Component{
